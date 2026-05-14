@@ -30,6 +30,12 @@ export default function Home() {
 		// Prevent the page from reloading when the form is submitted
 		event.preventDefault();
 
+		// Do not allow an empty value
+		if (searchInput.trim().length === 0) {
+			alert("Input cannot be empty or only spaces.");
+			return;
+		}
+
 		// Clear previous values
 		setSearchResults([]);
 		setCurrentSearchQuery("");
@@ -90,8 +96,6 @@ export default function Home() {
 			        	value={searchInput} 
 			        	onChange={(e) => setSearchInput(e.target.value)} // Update the searchInput state with the current input value 
 			        	onFocus={(e) => setIsEmptySearch(false)} // Hide the empty search div on focus
-			        	pattern="[A-Za-z]+" // Regex
-			        	title="Please enter a value that only contains letters."
 			        />
 
 			        {/* Disable the submit button if the input field is empty */}
