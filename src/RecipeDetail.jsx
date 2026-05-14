@@ -9,7 +9,7 @@ export default function RecipeDetail() {
 	const [showNoDataMsg, setShowNoDataMsg] = useState(false);
 	const [mealData, setMealData] = useState(null);
 
-	// The dynamic segment (defined in App.jsx) will be parsed from the URL and provided as params
+	// The dynamic segment (defined in App.jsx) is parsed from the URL and provided as params
 	let params = useParams();
 
 	// URL to get the full recipe details by id
@@ -42,7 +42,7 @@ export default function RecipeDetail() {
 					strInstructions: mealDataObject.strInstructions
 						.split(/\r?\n/) // Split by line breaks
 						.map(step => {
-							// Remove leading numbers, dots, dashes, and spaces
+							// Remove any leading numbers, dots, dashes, and spaces
 							return step.replace(/^\d+[\s.)-]*|^\s*-\s*/, "").trim();
 						})
 						.filter(step => step !== ""), // Filter out any empty strings
@@ -75,13 +75,13 @@ export default function RecipeDetail() {
 		  	}
 		  })
 		  .catch( error => {
-		  	// If there are errors, show messages
+		  	// If there are errors, show a message
 		  	setIsLoading(false);
 		  	console.log("Fetch error:", error);
 		  	setShowErrorMsg(true);
 			});
 	}, [params.mealId]);
-	// Re-run the useEffect hook if the mealId or fetchUrl changes
+	// Re-run the useEffect hook if the mealId changes
 
 
 	// If there is an error, show a message
@@ -114,7 +114,7 @@ export default function RecipeDetail() {
 		);
 	}
 
-	// If none of the above conditions are true, show the recipe content.
+	// If none of the above conditions are true, show the recipe content
 	return (
 		<div>
 				<div>
@@ -134,7 +134,7 @@ export default function RecipeDetail() {
 
 							<p><b>Ingredients:</b></p>
 
-							{/* Map over the ingredients */}
+							{/* Map over the ingredients array */}
 							<ul>
 								{mealData.ingredients.map((item, index) => (
 									<li key={index}>
@@ -147,7 +147,7 @@ export default function RecipeDetail() {
 
 					<p><b>Instructions:</b></p>
 
-					{/* Map over the instructions */}
+					{/* Map over the instructions array */}
 					<ol>
 						{mealData.strInstructions.map((item, index) => (
 							<li key={index}>

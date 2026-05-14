@@ -1,10 +1,11 @@
 import { Link } from "react-router";
 
 // export RecipeCard component
+// The prop values will be passed in from the "searchResults" array in Home.jsx
 export default function RecipeCard(props) {
 	return (
 		<div className="recipe-card-box">
-			<div className="recipe-card" id={props.mealId}>
+			<div className="recipe-card">
 
 				<h3>{props.strMeal}</h3>
 

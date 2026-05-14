@@ -95,7 +95,7 @@ export default function Home() {
 			        	className="search-input" 
 			        	value={searchInput} 
 			        	onChange={(e) => setSearchInput(e.target.value)} // Update the searchInput state with the current input value 
-			        	onFocus={(e) => setIsEmptySearch(false)} // Hide the empty search div on focus
+			        	onFocus={(e) => setIsEmptySearch(false)} // Hide the empty search message on focus
 			        />
 
 			        {/* Disable the submit button if the input field is empty */}
