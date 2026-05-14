@@ -148,13 +148,11 @@ export default function RecipeDetail() {
 					<p><b>Instructions:</b></p>
 
 					{/* Map over the instructions array */}
-					<ol>
 						{mealData.strInstructions.map((item, index) => (
-							<li key={index}>
+							<p key={index}>
 								{item}
-							</li>
+							</p>
 						))}
-					</ol>
 
 					{/* Display the recipe source if available */}
 					<p>
